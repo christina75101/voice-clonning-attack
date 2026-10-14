@@ -1,0 +1,1006 @@
+<html><head><meta charset='utf-8'><style>body{font-family:'Times New Roman',serif;font-size:10pt}table{border-collapse:collapse;margin-bottom:6pt}td,th{border-top:1px solid #000;border-bottom:1px solid #000;padding:2px 6px;text-align:center}p.t{font-weight:bold;margin-top:18pt}p.n{font-size:9pt}</style></head><body>
+<p class='t'>Table 2. Calibration stage (all pairs of the 200 enrollment recordings: 900 target / 19,000 non-target)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>EER, %</th>
+      <th>minDCF (P_tar=0.01)</th>
+      <th>minDCF (P_tar=0.05)</th>
+      <th>τ (cosine similarity)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>4.44</td>
+      <td>0.074</td>
+      <td>0.063</td>
+      <td>0.294</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>6.76</td>
+      <td>0.385</td>
+      <td>0.293</td>
+      <td>0.925</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>5.78</td>
+      <td>0.518</td>
+      <td>0.336</td>
+      <td>0.916</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>4.11</td>
+      <td>0.068</td>
+      <td>0.060</td>
+      <td>0.326</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>4.67</td>
+      <td>0.076</td>
+      <td>0.073</td>
+      <td>0.292</td>
+    </tr>
+  </tbody>
+</table><p class='n'>τ is the EER threshold of the calibration set; it is frozen for all later experiments.</p>
+<p class='t'>Table 4. Testing stage, bona fide trials (400 target / 7,600 zero-effort impostor)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>EER, %</th>
+      <th>minDCF (0.01)</th>
+      <th>minDCF (0.05)</th>
+      <th>FAR at τ, %</th>
+      <th>FRR at τ, %</th>
+      <th>HTER at τ, %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>1.50</td>
+      <td>0.052</td>
+      <td>0.045</td>
+      <td>6.37</td>
+      <td>0.75</td>
+      <td>3.56</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>6.46</td>
+      <td>0.458</td>
+      <td>0.317</td>
+      <td>7.22</td>
+      <td>5.50</td>
+      <td>6.36</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>5.01</td>
+      <td>0.503</td>
+      <td>0.327</td>
+      <td>6.43</td>
+      <td>3.75</td>
+      <td>5.09</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>1.51</td>
+      <td>0.090</td>
+      <td>0.067</td>
+      <td>4.78</td>
+      <td>1.00</td>
+      <td>2.89</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>1.75</td>
+      <td>0.095</td>
+      <td>0.075</td>
+      <td>4.83</td>
+      <td>1.75</td>
+      <td>3.29</td>
+    </tr>
+  </tbody>
+</table><p class='n'>EER and minDCF are threshold-free; FAR/FRR/HTER use the frozen calibration threshold τ.</p>
+<p class='t'>Table 7. Attack success rate (IAPMR, %) with identical linguistic content, threshold τ; 95% CI from speaker-level bootstrap (2,000 resamples). n = 400 attacks per cell</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cloning tool</th>
+      <th>PyAnnote</th>
+      <th>WavLM-base-sv</th>
+      <th>WavLM-base-plus-sv</th>
+      <th>TitaNet</th>
+      <th>ECAPA-TDNN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>96.0 [91.5–99.5]</td>
+      <td>92.5 [86.5–97.5]</td>
+      <td>99.8 [99.2–100.0]</td>
+      <td>100.0 [100.0–100.0]</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>79.0 [63.5–93.0]</td>
+      <td>66.8 [49.8–82.2]</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>100.0 [100.0–100.0]</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>91.2 [85.5–96.0]</td>
+      <td>65.8 [50.5–79.8]</td>
+      <td>53.8 [37.7–68.8]</td>
+      <td>88.8 [80.0–96.5]</td>
+      <td>88.0 [79.2–95.0]</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>79.8 [66.8–91.2]</td>
+      <td>74.0 [59.5–86.5]</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>99.8 [99.2–100.0]</td>
+    </tr>
+  </tbody>
+</table><p class='n'>For reference, genuine acceptance at τ: PyAnnote 99.2%, WavLM-base-sv 94.5%, WavLM-base-plus-sv 96.2%, TitaNet 99.0%, ECAPA-TDNN 98.2%.</p>
+<p class='t'>Table 8. Attack success rate (IAPMR, %) with varied linguistic content, threshold τ; 95% CI from speaker-level bootstrap (2,000 resamples). n = 400 attacks per cell</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cloning tool</th>
+      <th>PyAnnote</th>
+      <th>WavLM-base-sv</th>
+      <th>WavLM-base-plus-sv</th>
+      <th>TitaNet</th>
+      <th>ECAPA-TDNN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>97.5 [94.0–100.0]</td>
+      <td>91.5 [84.5–97.0]</td>
+      <td>99.8 [99.2–100.0]</td>
+      <td>100.0 [100.0–100.0]</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>81.5 [67.0–94.2]</td>
+      <td>72.8 [56.2–87.0]</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>100.0 [100.0–100.0]</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>96.0 [92.5–98.8]</td>
+      <td>70.8 [53.8–85.2]</td>
+      <td>59.2 [44.8–73.0]</td>
+      <td>92.5 [86.5–97.2]</td>
+      <td>89.8 [83.5–95.0]</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>79.5 [66.5–91.0]</td>
+      <td>72.8 [59.0–85.2]</td>
+      <td>100.0 [100.0–100.0]</td>
+      <td>100.0 [100.0–100.0]</td>
+    </tr>
+  </tbody>
+</table><p class='n'>For reference, genuine acceptance at τ: PyAnnote 99.2%, WavLM-base-sv 94.5%, WavLM-base-plus-sv 96.2%, TitaNet 99.0%, ECAPA-TDNN 98.2%.</p>
+<p class='t'>Table 9. Attack success (IAPMR) and genuine rejection (FRR) at three operating points (identical + varied content, 800 attacks per tool)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Operating point</th>
+      <th>Model</th>
+      <th>FRR (genuine), %</th>
+      <th>IAPMR ElevenLabs, %</th>
+      <th>IAPMR RVC, %</th>
+      <th>IAPMR Tortoise, %</th>
+      <th>IAPMR XTTS, %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>τ (EER)</td>
+      <td>PyAnnote</td>
+      <td>0.8</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>93.6</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <td>τ (EER)</td>
+      <td>WavLM-base-sv</td>
+      <td>5.5</td>
+      <td>96.8</td>
+      <td>80.2</td>
+      <td>68.2</td>
+      <td>79.6</td>
+    </tr>
+    <tr>
+      <td>τ (EER)</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>3.8</td>
+      <td>92.0</td>
+      <td>69.8</td>
+      <td>56.5</td>
+      <td>73.4</td>
+    </tr>
+    <tr>
+      <td>τ (EER)</td>
+      <td>TitaNet</td>
+      <td>1.0</td>
+      <td>99.8</td>
+      <td>100.0</td>
+      <td>90.6</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <td>τ (EER)</td>
+      <td>ECAPA-TDNN</td>
+      <td>1.8</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>88.9</td>
+      <td>99.9</td>
+    </tr>
+    <tr>
+      <td>FAR = 1%</td>
+      <td>PyAnnote</td>
+      <td>1.5</td>
+      <td>99.6</td>
+      <td>100.0</td>
+      <td>77.1</td>
+      <td>99.2</td>
+    </tr>
+    <tr>
+      <td>FAR = 1%</td>
+      <td>WavLM-base-sv</td>
+      <td>18.0</td>
+      <td>72.0</td>
+      <td>48.2</td>
+      <td>36.5</td>
+      <td>49.8</td>
+    </tr>
+    <tr>
+      <td>FAR = 1%</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>17.5</td>
+      <td>53.5</td>
+      <td>30.0</td>
+      <td>18.6</td>
+      <td>30.4</td>
+    </tr>
+    <tr>
+      <td>FAR = 1%</td>
+      <td>TitaNet</td>
+      <td>2.2</td>
+      <td>99.6</td>
+      <td>100.0</td>
+      <td>66.6</td>
+      <td>99.8</td>
+    </tr>
+    <tr>
+      <td>FAR = 1%</td>
+      <td>ECAPA-TDNN</td>
+      <td>2.0</td>
+      <td>99.5</td>
+      <td>99.4</td>
+      <td>66.6</td>
+      <td>92.0</td>
+    </tr>
+    <tr>
+      <td>FAR = 0.1%</td>
+      <td>PyAnnote</td>
+      <td>3.5</td>
+      <td>98.9</td>
+      <td>99.6</td>
+      <td>60.2</td>
+      <td>92.1</td>
+    </tr>
+    <tr>
+      <td>FAR = 0.1%</td>
+      <td>WavLM-base-sv</td>
+      <td>39.8</td>
+      <td>32.6</td>
+      <td>17.6</td>
+      <td>11.8</td>
+      <td>17.5</td>
+    </tr>
+    <tr>
+      <td>FAR = 0.1%</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>45.8</td>
+      <td>16.0</td>
+      <td>5.1</td>
+      <td>2.2</td>
+      <td>6.4</td>
+    </tr>
+    <tr>
+      <td>FAR = 0.1%</td>
+      <td>TitaNet</td>
+      <td>5.8</td>
+      <td>94.9</td>
+      <td>94.1</td>
+      <td>26.5</td>
+      <td>74.6</td>
+    </tr>
+    <tr>
+      <td>FAR = 0.1%</td>
+      <td>ECAPA-TDNN</td>
+      <td>6.5</td>
+      <td>85.5</td>
+      <td>84.8</td>
+      <td>29.1</td>
+      <td>70.0</td>
+    </tr>
+  </tbody>
+</table><p class='n'>FAR = 1% and 0.1% thresholds are set on the 7,600 zero-effort impostor trials.</p>
+<p class='t'>Table 10. Spoof-EER (%), genuine target trials vs. cloned attacks, threshold-free</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>ElevenLabs</th>
+      <th>RVC</th>
+      <th>Tortoise</th>
+      <th>XTTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>33.0</td>
+      <td>32.0</td>
+      <td>16.5</td>
+      <td>24.5</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>36.1</td>
+      <td>29.0</td>
+      <td>24.8</td>
+      <td>29.8</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>30.5</td>
+      <td>21.2</td>
+      <td>18.2</td>
+      <td>21.7</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>23.0</td>
+      <td>27.9</td>
+      <td>13.1</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>25.1</td>
+      <td>29.0</td>
+      <td>12.5</td>
+      <td>21.0</td>
+    </tr>
+  </tbody>
+</table><p class='n'>50% = clones indistinguishable from genuine speech; 0% = perfect separation.</p>
+<p class='t'>Table 11. Effect of linguistic content (speaker-level paired Wilcoxon signed-rank test, 20 speakers; Holm correction over 20 tests)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cloning tool</th>
+      <th>Model</th>
+      <th>Identical, %</th>
+      <th>Varied, %</th>
+      <th>Δ (identical − varied), pp</th>
+      <th>p (Wilcoxon)</th>
+      <th>p (Holm)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>PyAnnote</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>WavLM-base-sv</td>
+      <td>96.0</td>
+      <td>97.5</td>
+      <td>-1.50</td>
+      <td>0.167</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>92.5</td>
+      <td>91.5</td>
+      <td>+1.00</td>
+      <td>0.418</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>TitaNet</td>
+      <td>99.8</td>
+      <td>99.8</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>ElevenLabs</td>
+      <td>ECAPA-TDNN</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>PyAnnote</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>WavLM-base-sv</td>
+      <td>79.0</td>
+      <td>81.5</td>
+      <td>-2.50</td>
+      <td>0.245</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>66.7</td>
+      <td>72.7</td>
+      <td>-6.00</td>
+      <td>0.014</td>
+      <td>0.340</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>TitaNet</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>RVC</td>
+      <td>ECAPA-TDNN</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>PyAnnote</td>
+      <td>91.2</td>
+      <td>96.0</td>
+      <td>-4.75</td>
+      <td>0.040</td>
+      <td>0.914</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>WavLM-base-sv</td>
+      <td>65.8</td>
+      <td>70.7</td>
+      <td>-5.00</td>
+      <td>0.087</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>53.8</td>
+      <td>59.2</td>
+      <td>-5.50</td>
+      <td>0.040</td>
+      <td>0.914</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>TitaNet</td>
+      <td>88.8</td>
+      <td>92.5</td>
+      <td>-3.75</td>
+      <td>0.144</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>Tortoise</td>
+      <td>ECAPA-TDNN</td>
+      <td>88.0</td>
+      <td>89.8</td>
+      <td>-1.75</td>
+      <td>0.347</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>PyAnnote</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>WavLM-base-sv</td>
+      <td>79.8</td>
+      <td>79.5</td>
+      <td>+0.25</td>
+      <td>0.969</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>WavLM-base-plus-sv</td>
+      <td>74.0</td>
+      <td>72.7</td>
+      <td>+1.25</td>
+      <td>0.806</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>TitaNet</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>+0.00</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>XTTS</td>
+      <td>ECAPA-TDNN</td>
+      <td>99.8</td>
+      <td>100.0</td>
+      <td>-0.25</td>
+      <td>0.317</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+<p class='t'>Table 12. AASIST countermeasure (ASVspoof 2019 LA weights): CM-EER and APCER at BPCER = 5%</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Condition</th>
+      <th>ElevenLabs CM-EER / APCER, %</th>
+      <th>RVC CM-EER / APCER, %</th>
+      <th>Tortoise CM-EER / APCER, %</th>
+      <th>XTTS CM-EER / APCER, %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Clean</td>
+      <td>37.0 / 95.8</td>
+      <td>22.5 / 93.5</td>
+      <td>38.7 / 99.2</td>
+      <td>23.9 / 92.0</td>
+    </tr>
+    <tr>
+      <td>White noise 20 dB</td>
+      <td>45.0 / 98.4</td>
+      <td>29.0 / 97.4</td>
+      <td>50.1 / 99.5</td>
+      <td>32.7 / 96.1</td>
+    </tr>
+    <tr>
+      <td>White noise 10 dB</td>
+      <td>48.8 / 98.2</td>
+      <td>28.1 / 89.2</td>
+      <td>55.1 / 98.9</td>
+      <td>32.5 / 93.5</td>
+    </tr>
+    <tr>
+      <td>G.711 (8 kHz μ-law)</td>
+      <td>37.7 / 96.2</td>
+      <td>20.0 / 94.2</td>
+      <td>38.9 / 98.6</td>
+      <td>24.5 / 93.8</td>
+    </tr>
+  </tbody>
+</table><p class='n'>The CM threshold is set on bona fide test audio only (5% of genuine recordings rejected).</p>
+<p class='t'>Table 13. Cascaded system: speaker verification (threshold τ) followed by AASIST (BPCER = 5%), clean condition</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>FRR SV → SV+CM, %</th>
+      <th>IAPMR ElevenLabs: SV → SV+CM, %</th>
+      <th>IAPMR RVC: SV → SV+CM, %</th>
+      <th>IAPMR Tortoise: SV → SV+CM, %</th>
+      <th>IAPMR XTTS: SV → SV+CM, %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>0.7 → 5.5</td>
+      <td>100.0 → 95.8</td>
+      <td>100.0 → 93.5</td>
+      <td>93.6 → 93.1</td>
+      <td>100.0 → 92.0</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>5.5 → 9.8</td>
+      <td>96.8 → 92.8</td>
+      <td>80.2 → 75.1</td>
+      <td>68.2 → 67.6</td>
+      <td>79.6 → 75.1</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>3.7 → 8.2</td>
+      <td>92.0 → 87.9</td>
+      <td>69.8 → 65.0</td>
+      <td>56.5 → 56.1</td>
+      <td>73.4 → 69.2</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>1.0 → 6.0</td>
+      <td>99.8 → 95.6</td>
+      <td>100.0 → 93.5</td>
+      <td>90.6 → 89.9</td>
+      <td>100.0 → 92.0</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>1.7 → 6.8</td>
+      <td>100.0 → 95.8</td>
+      <td>100.0 → 93.5</td>
+      <td>88.9 → 88.2</td>
+      <td>99.9 → 91.9</td>
+    </tr>
+  </tbody>
+</table>
+<p class='t'>Table 14. Degraded acoustic conditions (applied to test and attack audio; enrollment and τ from clean audio)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Metric</th>
+      <th>Clean</th>
+      <th>White noise 20 dB</th>
+      <th>White noise 10 dB</th>
+      <th>G.711 (8 kHz μ-law)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>Bona fide EER / FRR at τ, %</td>
+      <td>1.5 / 0.8</td>
+      <td>1.7 / 0.5</td>
+      <td>2.5 / 2.0</td>
+      <td>4.7 / 5.0</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR ElevenLabs, %</td>
+      <td>100.0</td>
+      <td>99.6</td>
+      <td>99.6</td>
+      <td>95.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR RVC, %</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>96.2</td>
+      <td>78.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR Tortoise, %</td>
+      <td>93.6</td>
+      <td>90.9</td>
+      <td>84.6</td>
+      <td>66.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR XTTS, %</td>
+      <td>100.0</td>
+      <td>99.8</td>
+      <td>97.2</td>
+      <td>78.1</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>Bona fide EER / FRR at τ, %</td>
+      <td>6.5 / 5.5</td>
+      <td>9.5 / 18.2</td>
+      <td>15.5 / 44.2</td>
+      <td>9.0 / 12.2</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR ElevenLabs, %</td>
+      <td>96.8</td>
+      <td>90.8</td>
+      <td>63.2</td>
+      <td>92.9</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR RVC, %</td>
+      <td>80.2</td>
+      <td>65.1</td>
+      <td>31.9</td>
+      <td>70.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR Tortoise, %</td>
+      <td>68.2</td>
+      <td>59.6</td>
+      <td>36.8</td>
+      <td>62.1</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR XTTS, %</td>
+      <td>79.6</td>
+      <td>63.0</td>
+      <td>48.0</td>
+      <td>70.8</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>Bona fide EER / FRR at τ, %</td>
+      <td>5.0 / 3.8</td>
+      <td>5.8 / 7.0</td>
+      <td>8.2 / 22.8</td>
+      <td>5.7 / 5.2</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR ElevenLabs, %</td>
+      <td>92.0</td>
+      <td>90.6</td>
+      <td>76.8</td>
+      <td>94.4</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR RVC, %</td>
+      <td>69.8</td>
+      <td>56.2</td>
+      <td>38.8</td>
+      <td>68.9</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR Tortoise, %</td>
+      <td>56.5</td>
+      <td>45.8</td>
+      <td>33.1</td>
+      <td>55.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR XTTS, %</td>
+      <td>73.4</td>
+      <td>67.1</td>
+      <td>56.0</td>
+      <td>69.9</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>Bona fide EER / FRR at τ, %</td>
+      <td>1.5 / 1.0</td>
+      <td>1.0 / 0.2</td>
+      <td>1.5 / 0.5</td>
+      <td>2.7 / 2.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR ElevenLabs, %</td>
+      <td>99.8</td>
+      <td>99.8</td>
+      <td>99.6</td>
+      <td>99.2</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR RVC, %</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>99.9</td>
+      <td>99.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR Tortoise, %</td>
+      <td>90.6</td>
+      <td>88.8</td>
+      <td>84.2</td>
+      <td>69.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR XTTS, %</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>99.1</td>
+      <td>89.4</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>Bona fide EER / FRR at τ, %</td>
+      <td>1.7 / 1.8</td>
+      <td>1.3 / 0.5</td>
+      <td>3.0 / 2.0</td>
+      <td>4.7 / 4.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR ElevenLabs, %</td>
+      <td>100.0</td>
+      <td>99.8</td>
+      <td>99.0</td>
+      <td>99.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR RVC, %</td>
+      <td>100.0</td>
+      <td>100.0</td>
+      <td>96.6</td>
+      <td>99.4</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR Tortoise, %</td>
+      <td>88.9</td>
+      <td>82.9</td>
+      <td>79.1</td>
+      <td>78.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>IAPMR XTTS, %</td>
+      <td>99.9</td>
+      <td>95.4</td>
+      <td>93.6</td>
+      <td>90.4</td>
+    </tr>
+  </tbody>
+</table>
+<p class='t'>Table 15. Computational cost (CPU inference, Apple M4 Pro, 14 cores; mean recording length 8.0 s)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>Parameters, M</th>
+      <th>Time per recording, ms (mean ± sd)</th>
+      <th>Real-time factor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>4.3</td>
+      <td>6 ± 2</td>
+      <td>0.0008</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>101.1</td>
+      <td>142 ± 81</td>
+      <td>0.0186</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>101.1</td>
+      <td>123 ± 65</td>
+      <td>0.0160</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>25.3</td>
+      <td>141 ± 103</td>
+      <td>0.0210</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>22.2</td>
+      <td>28 ± 11</td>
+      <td>0.0038</td>
+    </tr>
+    <tr>
+      <td>AASIST (CM)</td>
+      <td>0.30</td>
+      <td>111 ± 51</td>
+      <td>0.0149</td>
+    </tr>
+  </tbody>
+</table><p class='n'>Embedding extraction only; cosine scoring against a stored voiceprint adds < 0.1 ms. Parameter counts include the models' classification heads where present.</p>
+<p class='t'>Table 16. Gender-disaggregated and per-speaker attack success (all tools, both content conditions, clean)</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Model</th>
+      <th>IAPMR male, %</th>
+      <th>IAPMR female, %</th>
+      <th>p (Mann–Whitney, speakers)</th>
+      <th>Per-speaker IAPMR, mean ± sd, %</th>
+      <th>Min–max, %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PyAnnote</td>
+      <td>98.8</td>
+      <td>98.1</td>
+      <td>0.119</td>
+      <td>98.4 ± 2.3</td>
+      <td>91.9–100.0</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-sv</td>
+      <td>72.7</td>
+      <td>89.8</td>
+      <td>0.049</td>
+      <td>81.2 ± 16.3</td>
+      <td>54.4–100.0</td>
+    </tr>
+    <tr>
+      <td>WavLM-base-plus-sv</td>
+      <td>66.6</td>
+      <td>79.2</td>
+      <td>0.045</td>
+      <td>72.9 ± 15.4</td>
+      <td>36.9–99.4</td>
+    </tr>
+    <tr>
+      <td>TitaNet</td>
+      <td>97.9</td>
+      <td>97.3</td>
+      <td>0.194</td>
+      <td>97.6 ± 4.0</td>
+      <td>88.8–100.0</td>
+    </tr>
+    <tr>
+      <td>ECAPA-TDNN</td>
+      <td>98.3</td>
+      <td>96.1</td>
+      <td>0.089</td>
+      <td>97.2 ± 4.0</td>
+      <td>85.0–100.0</td>
+    </tr>
+  </tbody>
+</table>
+</body></html>

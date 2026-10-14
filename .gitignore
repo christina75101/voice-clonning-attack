@@ -1,0 +1,15 @@
+# audio and derived data are never published
+*.wav
+*.mp3
+*.flac
+*.m4a
+data/
+dataset_exp_*/
+evaluation/embeddings/
+evaluation/speaker_metadata.csv
+evaluation/third_party/
+pretrained_models/
+.venv/
+__pycache__/
+*.pkl
+.DS_Store
